@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    
+    <style>
+        body {
+            background: #e5e5e5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            margin-top: 10vh;
+        }
+        .card {
+            background-color: rgba(113, 255, 234, 150);
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container d-flex justify-content-center">
+    <div class="card p-5 text-center col-md-6 col-lg-4">
+        <h2 class="mb-4">Welcome to Traineeship Application</h2>
+
+        <a th:href="@{/login}" class="btn btn-primary mb-3 w-100">🔐 Login</a>
+        <a th:href="@{/register}" class="btn btn-outline-primary w-100">📝 Register</a>
+    </div>
+</div>
+
+</body>
+</html>
+

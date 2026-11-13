@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Traineeship Application</title>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            margin-top: 80px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center">
+        <div class="card w-50 p-4">
+            <h3 class="text-center mb-4">Student Profile</h3>
+
+            <form th:action="@{/student/createProfileForm}" th:object="${student}" method="post">
+                <input type="hidden" th:field="*{username}" />
+                <input type="hidden" th:field="*{password}" />
+                <input type="hidden" th:field="*{role}" />      
+
+                <div class="form-group">
+                    <label class="form-label">Name:</label>
+                    <input type="text" th:field="*{studentName}" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Academic ID (AM):</label>
+                    <input type="text" th:field="*{student_AM}" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Skills:</label>
+                    <input type="text" th:field="*{student_skills}" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Interests:</label>
+                    <input type="text" th:field="*{student_interests}" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Preferred Location:</label>
+                    <input type="text" th:field="*{preferredLocation}" class="form-control"/>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block mt-4">Save</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

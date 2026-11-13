@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>List of available Traineeship positions</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Available traineeship positions</h3>
+	<hr>
+	
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Traineeship Id</th>
+                <th>Start Date</th>
+				<th>End Date</th>
+				<th>Description</th>
+				<th>Topics</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="position : ${positions}">
+			
+				<td th:text="${position.id}" />	
+				<td th:text="${position.traineeship_startDate}" />	
+				<td th:text="${position.traineeship_endDate}" />
+				<td th:text="${position.traineeship_description}" />
+                <td th:text="${position.traineeship_topics}" />			
+				
+			</tr>
+		</tbody>		
+	</table>
+	
+	<a th:href="@{/company/company-homepage}">Back to homepage</a>
+	
+</div>
+	
+</body>
+</html>
+
+
+

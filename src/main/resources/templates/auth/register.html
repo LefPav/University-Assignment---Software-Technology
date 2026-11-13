@@ -1,0 +1,112 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+    <style>
+      body {
+        background-color: #e5e5e5;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      .container {
+        max-height: 700px;
+        max-width: 500px;
+        margin-top: 100px;
+        background-color: rgba(113, 255, 234, 150);
+        padding: 100px;
+        border-radius: 300px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      }
+
+      h3 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+      }
+      
+      input[type="text"], input[type="password"]{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 15px;                /* 👈 Makes text more readable */
+        box-sizing: border-box;         /* 👈 Prevents padding from messing up width */
+        background-color: #fff;         /* 👈 Ensures background stays white */
+        transition: border-color 0.3s;  /* 👈 Smooth hover/focus effect */
+      }
+
+      input[type="text"]:focus, input[type="password"]:focus {
+        border-color: #1965b1;  /* 👈 Bootstrap blue or change as needed */
+        outline: none;          /* Removes the default outline */
+        box-shadow: 0 0 3px rgba(0, 123, 255, 0.5); /* Subtle glow effect */
+      }
+
+      button[type="submit"] {
+        background-color: crimson;
+        color: white;
+        border: none;
+        max-width: 70px;
+        padding: 5px;
+        border-radius: 50px;
+        transition: background-color 0.5s ease;
+      }
+
+      button[type="submit"]:hover {
+        background-color: rgb(93, 8, 8);
+      }
+
+      a.btn-primary {
+        max-width: 70px;
+        padding: 5px;
+        border-radius: 50px;
+      }
+
+    </style>
+
+
+	<title>Traineeship Application Registration</title>
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <form 
+  action="#" 
+  th:action="@{/save}" th:object="${user}" method="post">
+    <h3>Registration</h3>
+    <input type="text" th:field="*{username}" placeholder="Username" /> <br/><br/>
+    <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</div>
+    <input type="password" th:field="*{password}" placeholder="Password" /> <br/><br/>
+    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</div>
+    
+    
+  
+    <select th:field="*{role}" required>
+      <option value="" >Select</option>
+      <option value="STUDENT">Student</option>
+      <option value="PROFESSOR">Professor</option>
+      <option value="COMPANY">Company</option>
+      <option value="COMMITTEE">Committee</option>
+    </select> <br/><br/>
+    
+    <button type="submit" class="btn btn-info col-2">Register</button> 
+    
+    <a th:href="@{/login}" class="btn btn-primary col-2"> Login</a>
+    
+    <div th:if="${param.error}"><p>Registration Error.</p></div> <br/>
+    
+    <span th:utext="${successMessage}"></span>
+</form>
+</body>
+</html>
